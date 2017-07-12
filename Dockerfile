@@ -19,8 +19,11 @@ ENV LANGUAGE en_US:en
 ENV LC_ALL en_US.UTF-8
 
 RUN add-apt-repository ppa:fkrull/deadsnakes \
+	&& curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add \
+	&& add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" \
 	&& apt-get update -qq \
 	&& apt-get install -y \
+			docker-ce \
 			python-dev \
 			python3-dev \
 			python2.6 python2.6-dev \
