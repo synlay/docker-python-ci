@@ -1,4 +1,4 @@
-FROM phusion/baseimage:0.9.18
+FROM phusion/baseimage:0.9.22
 
 MAINTAINER David Robakowski <david.robakowski@synlay.com>
 
@@ -6,7 +6,7 @@ MAINTAINER David Robakowski <david.robakowski@synlay.com>
 # is updated with the current date. It will force refresh of all
 # of the base images and things like `apt-get update` won't be using
 # old cached versions when the Dockerfile is built.
-ENV REFRESHED_AT 2016-01-02
+ENV REFRESHED_AT 2017-07-12
 
 # Use baseimage-docker's init system.
 CMD ["/sbin/my_init"]
@@ -22,6 +22,7 @@ RUN add-apt-repository ppa:fkrull/deadsnakes \
 	&& apt-get update -qq \
 	&& apt-get install -y \
 			python-dev \
+			python3-dev \
 			python2.6 python2.6-dev \
 			python2.7 python2.7-dev \
 			python3.3 python3.3-dev \
